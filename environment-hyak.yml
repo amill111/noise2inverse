@@ -1,0 +1,27 @@
+name: noise2inverse
+channels:
+- pytorch
+- nvidia
+- astra-toolbox
+- conda-forge
+dependencies:
+- python=3.11
+- pip
+- ipython
+- ipykernel
+# pytorch
+- pytorch
+- pytorch-cuda=12.4
+# plotting and utilities
+- scikit-image
+- matplotlib
+- seaborn
+- tifffile
+- tqdm
+# Tomography
+- foam_ct_phantom
+- tomopy
+- astra-toolbox
+- pip:
+  - tomosipo
+  - bm3d
