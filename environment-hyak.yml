@@ -1,17 +1,14 @@
 name: noise2inverse
 channels:
-- pytorch
-- nvidia
-- astra-toolbox
 - conda-forge
+- astra-toolbox
 dependencies:
-- python=3.11
+- python=3.10
 - pip
 - ipython
 - ipykernel
-# pytorch
-- pytorch
-- pytorch-cuda=12.4
+# pytorch (GPU build from conda-forge)
+- pytorch-gpu
 # plotting and utilities
 - scikit-image
 - matplotlib
@@ -23,5 +20,5 @@ dependencies:
 - tomopy
 - astra-toolbox
 - pip:
-  - tomosipo
+  - git+https://github.com/ahendriksen/tomosipo.git
   - bm3d
