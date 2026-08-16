@@ -58,28 +58,13 @@ def filter_proj_data(sino):
 
     # XXX: Consider using torch.stft. This might save us from doing
     # the padding.
-    fourier_sino = torch.rfft(
-        tmp_sino,
-        signal_ndim=1,
-        normalized=normalized
-    )
-
+    fourier_sino = torch.fft.rfft(tmp_sino, dim=-1)
+    
     real_filter = filter_in_real_filterspace(M).astype(np.float32)
-    fourier_filter = torch.rfft(
-        torch.from_numpy(real_filter),
-        signal_ndim=1,
-        normalized=normalized,
-    )
-    # Make complex dimension equal to real dimension
-    fourier_filter = fourier_filter[:, 0][:, None]
+    fourier_filter = torch.fft.rfft(torch.from_numpy(real_filter), dim=-1).real
 
     fourier_sino *= fourier_filter
-    tmp_filtered = torch.irfft(
-        fourier_sino,
-        signal_ndim=1,
-        signal_sizes=(M,),
-        normalized=normalized,
-    )
+    tmp_filtered = torch.fft.irfft(fourier_sino, n=M, dim=-1)
     tmp_filtered /= num_angles / np.pi
 
     filtered = tmp_filtered.new_empty(sino.shape)
