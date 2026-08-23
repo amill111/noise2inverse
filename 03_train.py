@@ -29,7 +29,7 @@ output_dir = Path("weights")
 
 num_splits = 4
 strategy = "X:1"
-epochs = 100
+epochs = 200
 # NOTE: reduce the batch size to fit training in GPU memory for unet and dncnn
 batch_size = 8
 multi_gpu = False
