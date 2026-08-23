@@ -37,6 +37,9 @@ data_range = clean.max() - clean.min()
 psnr_full = skm.peak_signal_noise_ratio(clean, output, data_range=data_range)
 ssim_full = skm.structural_similarity(clean, output, data_range=data_range)
 
+psnr_noisy_full = skm.peak_signal_noise_ratio(clean, noisy, data_range=data_range)
+ssim_noisy_full = skm.structural_similarity(clean, noisy, data_range=data_range)
+
 
 # In[5]:
 
@@ -44,6 +47,8 @@ ssim_full = skm.structural_similarity(clean, output, data_range=data_range)
 psnr_slice = skm.peak_signal_noise_ratio(clean[256], output[256], data_range=data_range)
 ssim_slice = skm.structural_similarity(clean[256], output[256], data_range=data_range)
 
+psnr_noisy_slice = skm.peak_signal_noise_ratio(clean[256], noisy[256], data_range=data_range)
+ssim_noisy_slice = skm.structural_similarity(clean[256], noisy[256], data_range=data_range)
 
 # In[8]:
 
@@ -52,6 +57,13 @@ print(f"      Volume | Central slice")
 print("-----------------------------")
 print(f"PSNR:  {psnr_full:5.2f} |  {psnr_slice:5.2f}")
 print(f"SSIM:  {ssim_full:5.2f} |  {ssim_slice:5.2f}")
+
+print(f"              Noisy | Denoised")
+print("-------------------------------")
+print(f"PSNR (volume): {psnr_noisy_full:5.2f} | {psnr_full:5.2f}")
+print(f"SSIM (volume): {ssim_noisy_full:5.2f} | {ssim_full:5.2f}")
+print(f"PSNR (slice):  {psnr_noisy_slice:5.2f} | {psnr_slice:5.2f}")
+print(f"SSIM (slice):  {ssim_noisy_slice:5.2f} | {ssim_slice:5.2f}")
 
 
 # In[9]:
