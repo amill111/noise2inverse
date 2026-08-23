@@ -99,8 +99,6 @@ def add_zoom_bubble(axes_image,
         aspect="auto",            # unknown..
         interpolation="nearest",
         alpha=1.0,
-        vmin=axes_image.get_clim()[0],
-        vmax=axes_image.get_clim()[1],
         origin=axes_image.origin,
         extent=axes_image.get_extent(),
         filternorm=axes_image.get_filternorm(),
