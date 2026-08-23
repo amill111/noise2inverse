@@ -107,7 +107,7 @@ with torch.no_grad():
         # Obtain 2D numpy array
         out_np = out.detach().cpu().numpy().squeeze()
         out_path = str(output_dir / f"output_{i:05d}.tif")
-        tifffile.imsave(out_path, out_np)
+        tifffile.imwrite(out_path, out_np)
 
 
 # In[8]:

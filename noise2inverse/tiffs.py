@@ -53,7 +53,7 @@ def save_stack(path, stack, prefix="output", exist_ok=True, parents=False):
     path.mkdir(exist_ok=exist_ok, parents=parents)
     for i, s in tqdm(enumerate(stack), mininterval=10.0):
         opath = path / f"{prefix}_{i:05d}.tif"
-        tifffile.imsave(str(opath), s)
+        tifffile.imwrite(str(opath), s)
 
 
 def load_sino(paths, binning=1, dtype=None, flip_y=False):
