@@ -126,4 +126,5 @@ import matplotlib.patches as patches
 axes = plt.gcf().axes
 for ax in axes[:3]:
     fig.add_zoom_bubble(ax.images[0], roi=(.4, .3), zoom=4, inset_radius=.25)
+    plt.savefig("figure_evaluate.png", dpi=150, bbox_inches="tight")
 

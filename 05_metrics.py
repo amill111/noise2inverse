@@ -65,6 +65,14 @@ print(f"SSIM (volume): {ssim_noisy_full:5.2f} | {ssim_full:5.2f}")
 print(f"PSNR (slice):  {psnr_noisy_slice:5.2f} | {psnr_slice:5.2f}")
 print(f"SSIM (slice):  {ssim_noisy_slice:5.2f} | {ssim_slice:5.2f}")
 
+with open("metrics.txt", "w") as f:
+    f.write("              Noisy | Denoised\n")
+    f.write("-------------------------------\n")
+    f.write(f"PSNR (volume): {psnr_noisy_full:5.2f} | {psnr_full:5.2f}\n")
+    f.write(f"SSIM (volume): {ssim_noisy_full:5.2f} | {ssim_full:5.2f}\n")
+    f.write(f"PSNR (slice):  {psnr_noisy_slice:5.2f} | {psnr_slice:5.2f}\n")
+    f.write(f"SSIM (slice):  {ssim_noisy_slice:5.2f} | {ssim_slice:5.2f}\n")
+
 
 # In[9]:
 
@@ -82,6 +90,7 @@ import matplotlib.patches as patches
 axes = plt.gcf().axes
 for ax in axes[:3]:
     fig.add_zoom_bubble(ax.images[0], roi=(.4, .3), zoom=4, inset_radius=.25)
+    plt.savefig("figure_metrics.png", dpi=150, bbox_inches="tight")
 
 
 # In[ ]:

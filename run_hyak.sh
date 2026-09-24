@@ -38,7 +38,8 @@ package() {
   echo "=== packaging results ==="
   mkdir -p "$RESULTS"
   tar czf "$RESULTS/n2i_${SLURM_JOB_ID}.tgz" -C "$LOCAL" \
-      denoised reconstructions weights 2>/dev/null
+      denoised reconstructions weights \
+      figure_evaluate.png figure_metrics.png metrics.txt 2>/dev/null
   echo "results -> $RESULTS/n2i_${SLURM_JOB_ID}.tgz"
   rm -rf "$LOCAL"
 }
