@@ -32,6 +32,7 @@ cd "$LOCAL"
 source "$CONDA"
 conda activate noise2inverse
 export MPLBACKEND=Agg          # headless
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 # bundle whatever outputs exist even if fails part way
 package() {
