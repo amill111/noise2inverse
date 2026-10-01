@@ -40,6 +40,8 @@ Note: the install location in step 5 must match the CONDA path in run_hyak.sh. I
 | PSNR (slice)  |       3.83       |  16.84   |
 | SSIM (slice)  |       0.26       |   0.57   |
 
+Training to 100 effective epochs (as in the paper) overfit the U-Net and reduced the metrics, matching the paper's Fig. 13, so the shorter run is reported here.
+
 ## Credit/liscence
 
 Forked from [Noise2Inverse](https://github.com/ahendriksen/noise2inverse) by Allard Hendriksen et al. If you use this work, please cite:
