@@ -6,7 +6,7 @@ A fork of Noise2Inverse, updated to run on UW’s Hyak.
 2. Edit to tomo.py file: changed the old torch.rfft/torch.irfft for the newer torch.fft functions.
 3. Edit to tiffs.py file: changed tifffile.imsave to imwrite as the old name was removed.
 4. Edit to fig.py file: fixed a matplotlib call that the newer versions reject
-5. Edit to 03_train.py and 04_evaluate.py: changed the network from MSD to UNet, as the msd_pytorch package is no longer installable.
+5. Edit to 03_train.py and 04_evaluate.py: changed the network from MSD to UNet, as msd_pytorch stopped at PyTorch 1.8 / Python 3.9 / CUDA 11.1 
 6. New .py scripts: converted jupyter notebooks with nbconvert to scripts so they run headless on a compute node. 
 7. New run_hyak.sh file: a batch script that runs the whole pipeline on the node's local disk and saves the results back to gscratch. 
 8. Training now runs more epochs (epochs = 200 in 03_train.py) for stronger denoising.
